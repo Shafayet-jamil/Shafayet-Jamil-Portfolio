@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post — Shafayet Jamil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Marked.js — converts Markdown text to HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { display: ['Lora', 'Georgia', 'serif'], body: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    body { font-family: 'Outfit', sans-serif; }
+    h1, h2, h3 { font-family: 'Lora', serif; }
+    .hover-underline { position: relative; display: inline-block; }
+    .hover-underline::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px; background: #C2533A; transition: width 0.3s ease; }
+    .hover-underline:hover::after { width: 100%; }
+
+    /* =====================================================
+      MARKDOWN CONTENT STYLES
+      This styles the rendered blog post content
+    ===================================================== */
+    .prose h1 { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; margin: 2rem 0 1rem; line-height: 1.2; }
+    .prose h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+    .prose h3 { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    .prose p  { margin-bottom: 1.25rem; line-height: 1.8; color: #3A3A3A; }
+    .dark .prose p { color: #CCCAC3; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose li { margin-bottom: 0.4rem; line-height: 1.7; color: #3A3A3A; }
+    .dark .prose li { color: #CCCAC3; }
+    .prose a  { color: #C2533A; text-decoration: underline; }
+    .prose a:hover { opacity: 0.75; }
+    .prose blockquote { border-left: 3px solid #C2533A; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #666; }
+    .dark .prose blockquote { color: #888; }
+    .prose code { background: #E8E7E0; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.875rem; font-family: monospace; }
+    .dark .prose code { background: #2A2A27; color: #E07A52; }
+    .prose pre { background: #1C1C1C; color: #E8E7E0; padding: 1.25rem; border-radius: 10px; overflow-x: auto; margin: 1.5rem 0; }
+    .prose pre code { background: none; padding: 0; color: inherit; }
+    .prose img { border-radius: 10px; max-width: 100%; margin: 1.5rem 0; }
+    .prose hr { border: none; border-top: 1px solid #E2E1D9; margin: 2.5rem 0; }
+    .dark .prose hr { border-top-color: #2A2A27; }
+    .prose strong { font-weight: 600; }
+    .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+    .prose th { border-bottom: 2px solid #E2E1D9; padding: 0.5rem 0.75rem; text-align: left; font-weight: 600; }
+    .prose td { border-bottom: 1px solid #E2E1D9; padding: 0.5rem 0.75rem; }
+    .dark .prose th, .dark .prose td { border-color: #2A2A27; }
+  </style>
+</head>
+
+<body class="bg-[#F5F4EF] dark:bg-[#141412] text-[#18181B] dark:text-[#ECEAE3] transition-colors duration-300 min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F5F4EF]/90 dark:bg-[#141412]/90 backdrop-blur-sm border-b border-[#E2E1D9] dark:border-[#2A2A27]">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-display text-lg font-semibold tracking-tight">Shafayet Jamil<span class="text-[#C2533A]">.</span></a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#4A4A4A] dark:text-[#AAAAAA]">
+        <a href="index.html"    class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">Home</a>
+        <a href="projects.html" class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">What I Built</a>
+        <a href="blog.html"     class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">My Thoughts</a>
+        <a href="about.html"    class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">Who I am!</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleDark()" class="w-9 h-9 flex items-center justify-center rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:bg-[#E8E7E0] dark:hover:bg-[#2A2A27] transition-colors">
+          <svg id="iconSun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="iconMoon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="md:hidden w-9 h-9 flex items-center justify-center" onclick="toggleMenu()">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-medium border-t border-[#E2E1D9] dark:border-[#2A2A27] pt-4">
+      <a href="index.html"    class="hover:text-[#C2533A]">Home</a>
+      <a href="projects.html" class="hover:text-[#C2533A]">What I Built</a>
+      <a href="blog.html"     class="text-[#C2533A]">My Thoughts</a>
+      <a href="about.html"    class="hover:text-[#C2533A]">Who I am!</a>
+    </div>
+  </nav>
+
+  <!-- POST CONTENT -->
+  <main class="max-w-2xl mx-auto px-6 pt-36 pb-24">
+
+    <!-- Back link -->
+    <a href="portfolio/blog.html" class="inline-flex items-center gap-2 text-sm text-[#888] hover:text-[#C2533A] transition-colors mb-10">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      All posts
+    </a>
+
+    <!-- Post header — filled by JS -->
+    <div id="post-header" class="mb-10">
+      <div class="h-4 bg-[#E8E7E0] dark:bg-[#2A2A27] rounded animate-pulse mb-3 w-24"></div>
+      <div class="h-10 bg-[#E8E7E0] dark:bg-[#2A2A27] rounded animate-pulse mb-2"></div>
+      <div class="h-6 bg-[#E8E7E0] dark:bg-[#2A2A27] rounded animate-pulse w-3/4"></div>
+    </div>
+
+    <!-- Divider -->
+    <div class="h-px bg-[#E2E1D9] dark:bg-[#2A2A27] mb-10"></div>
+
+    <!-- Post body — markdown rendered here by JS -->
+    <div id="post-body" class="prose">
+      <div class="space-y-3">
+        <div class="h-4 bg-[#E8E7E0] dark:bg-[#2A2A27] rounded animate-pulse"></div>
+        <div class="h-4 bg-[#E8E7E0] dark:bg-[#2A2A27] rounded animate-pulse w-5/6"></div>
+        <div class="h-4 bg-[#E8E7E0] dark:bg-[#2A2A27] rounded animate-pulse w-4/6"></div>
+      </div>
+    </div>
+
+    <!-- Back to blog -->
+    <div class="mt-16 pt-8 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
+      <a href="blog.html" class="inline-flex items-center gap-2 px-5 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">
+        ← Back to My Thoughts
+      </a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#E2E1D9] dark:border-[#2A2A27] mt-16">
+    <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-[#888]">© 2025 Shafayet Jamil. Built with HTML, Tailwind & ☕</p>
+      <div class="flex gap-6 text-sm text-[#888]">
+        <a href="https://github.com/Shafayet-jamil" target="_blank" class="hover:text-[#C2533A] transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/shafayet-jamil" target="_blank" class="hover:text-[#C2533A] transition-colors">LinkedIn</a>
+        <a href="mailto:mdshafayetjamil@outlook.com" class="hover:text-[#C2533A] transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.documentElement.classList.add('dark');
+      document.getElementById('iconSun').classList.remove('hidden');
+      document.getElementById('iconMoon').classList.add('hidden');
+    }
+    function toggleDark() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('darkMode', isDark);
+      document.getElementById('iconSun').classList.toggle('hidden', !isDark);
+      document.getElementById('iconMoon').classList.toggle('hidden', isDark);
+    }
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    // ---- LOAD POST ----
+    // Reads the "slug" from URL, e.g. post.html?slug=hello-world
+    // Then loads posts/hello-world.md and renders it
+    async function loadPost() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+
+      if (!slug) {
+        showError('No post specified. Go back and click a post.');
+        return;
+      }
+
+      try {
+        // Load post metadata from posts.json
+        const metaRes = await fetch('posts/posts.json');
+        const posts = await metaRes.json();
+        const meta = posts.find(p => p.slug === slug);
+
+        // Load the actual markdown file
+        const mdRes = await fetch(`posts/${slug}.md`);
+        if (!mdRes.ok) throw new Error('Post not found');
+        const markdown = await mdRes.text();
+
+        // Update page title
+        if (meta) document.title = `${meta.title} — Shafayet Jamil`;
+
+        // Render the post header
+        document.getElementById('post-header').innerHTML = `
+          <div class="flex flex-wrap items-center gap-3 mb-3">
+            <span class="text-xs text-[#C2533A] font-medium uppercase tracking-wider">${meta ? meta.date : ''}</span>
+            ${meta && meta.tags ? meta.tags.map(t => `<span class="px-2 py-0.5 text-xs bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">${t}</span>`).join('') : ''}
+          </div>
+          <h1 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-3">${meta ? meta.title : slug}</h1>
+          ${meta ? `<p class="text-[#5A5A5A] dark:text-[#AAAAAA]">${meta.excerpt}</p>` : ''}
+        `;
+
+        // Convert markdown to HTML and render it
+        document.getElementById('post-body').innerHTML = marked.parse(markdown);
+
+      } catch (err) {
+        showError('This post could not be loaded. Make sure you\'re using Live Server and the .md file exists.');
+      }
+    }
+
+    function showError(msg) {
+      document.getElementById('post-header').innerHTML = `<h1 class="font-display text-2xl font-bold text-red-500">Oops!</h1>`;
+      document.getElementById('post-body').innerHTML = `<p class="text-[#888]">${msg}</p>`;
+    }
+
+    loadPost();
+  </script>
+
+</body>
+</html>

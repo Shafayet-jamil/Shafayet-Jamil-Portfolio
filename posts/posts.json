@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "Hello World — Why I Started This Blog",
+    "date": "Dec 15, 2025",
+    "excerpt": "Every developer has a hello world moment. This is mine — why I decided to start writing publicly about what I learn.",
+    "tags": ["Personal", "Beginners"]
+  },
+  {
+    "slug": "css-flexbox-guide",
+    "title": "CSS Flexbox: The Guide I Wish I Had",
+    "date": "Dec 22, 2025",
+    "excerpt": "Flexbox confused me for weeks. Then it clicked. Here's the mental model that made everything make sense.",
+    "tags": ["CSS", "Web Dev"]
+  },
+  {
+    "slug": "cs-journey",
+    "title": "What I've Learned in My First Year of CS",
+    "date": "Jan 5, 2026",
+    "excerpt": "Reflections on my first year studying Computer Science — the hard parts, the surprises, and what I'd tell myself on day one.",
+    "tags": ["Personal", "CS"]
+  }
+]
+

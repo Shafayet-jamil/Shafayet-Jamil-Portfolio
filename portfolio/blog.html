@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knowledge Bomb — Shafayet Jamil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { display: ['Lora', 'Georgia', 'serif'], body: ['Outfit', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    body { font-family: 'Outfit', sans-serif; }
+    h1, h2, h3 { font-family: 'Lora', serif; }
+    .hover-underline { position: relative; display: inline-block; }
+    .hover-underline::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px; background: #C2533A; transition: width 0.3s ease; }
+    .hover-underline:hover::after { width: 100%; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.25s; opacity: 0; }
+  </style>
+</head>
+
+<body class="bg-[#F5F4EF] dark:bg-[#141412] text-[#18181B] dark:text-[#ECEAE3] transition-colors duration-300 min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F5F4EF]/90 dark:bg-[#141412]/90 backdrop-blur-sm border-b border-[#E2E1D9] dark:border-[#2A2A27]">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-display text-lg font-semibold tracking-tight">Shafayet Jamil<span class="text-[#C2533A]">.</span></a>
+
+      <div class="flex items-center gap-8">
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#4A4A4A] dark:text-[#AAAAAA]">
+        <a href="index.html"    class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">Home</a>
+        <a href="projects.html" class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">What I Built</a>
+        <a href="blog.html"     class="text-[#C2533A] font-semibold">My Thoughts</a>
+        <a href="about.html"    class="hover-underline hover:text-[#18181B] dark:hover:text-[#ECEAE3] transition-colors">Who I am!</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleDark()" class="w-9 h-9 flex items-center justify-center rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:bg-[#E8E7E0] dark:hover:bg-[#2A2A27] transition-colors">
+          <svg id="iconSun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="iconMoon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="md:hidden w-9 h-9 flex items-center justify-center" onclick="toggleMenu()">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-medium border-t border-[#E2E1D9] dark:border-[#2A2A27] pt-4">
+      <a href="index.html"    class="hover:text-[#C2533A]">Home</a>
+      <a href="projects.html" class="hover:text-[#C2533A]">What I Built</a>
+      <a href="blog.html"     class="text-[#C2533A]">My Thoughts</a>
+      <a href="about.html"    class="hover:text-[#C2533A]">Who I am!</a>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto px-6 pt-36 pb-24">
+
+    <!-- Page Header -->
+    <div class="mb-14">
+      <p class="fade-up delay-1 text-xs uppercase tracking-[0.2em] text-[#C2533A] font-medium mb-3">Blog</p>
+      <h1 class="fade-up delay-2 font-display text-4xl md:text-5xl font-bold leading-tight mb-4">Knowledge Bomb 💥</h1>
+      <p class="fade-up delay-2 text-[#5A5A5A] dark:text-[#AAAAAA] max-w-lg">
+        My ideas, learnings, tutorials, and thoughts as a CS student. 
+        If I found it useful, I write about it.
+      </p>
+    </div>
+
+    <!-- Tag Filter — tags are populated by JS from posts.json -->
+    <div id="tag-filter" class="flex flex-wrap gap-2 mb-10">
+      <button onclick="filterByTag('all')" data-tag="all"
+        class="tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#C2533A] bg-[#C2533A] text-white transition-colors">
+        All
+      </button>
+      <!-- More tag buttons added by JS -->
+    </div>
+
+    <!-- Blog Posts List — loaded from posts/posts.json -->
+    <div id="posts-list" class="space-y-0">
+      <p class="text-[#AAAAAA] text-sm">Loading posts...</p>
+    </div>
+
+    <!-- Empty state (shown if no posts match filter) -->
+    <div id="empty-state" class="hidden text-center py-16">
+      <p class="text-4xl mb-3">📭</p>
+      <p class="text-[#888]">No posts found for this tag.</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#E2E1D9] dark:border-[#2A2A27] mt-16">
+    <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-[#888]">© 2025 Shafayet Jamil. Built with HTML, Tailwind & ☕</p>
+      <div class="flex gap-6 text-sm text-[#888]">
+        <a href="https://github.com/Shafayet-jamil" target="_blank" class="hover:text-[#C2533A] transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/shafayet-jamil" target="_blank" class="hover:text-[#C2533A] transition-colors">LinkedIn</a>
+        <a href="mailto:mdshafayetjamil@outlook.com" class="hover:text-[#C2533A] transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.documentElement.classList.add('dark');
+      document.getElementById('iconSun').classList.remove('hidden');
+      document.getElementById('iconMoon').classList.add('hidden');
+    }
+    function toggleDark() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('darkMode', isDark);
+      document.getElementById('iconSun').classList.toggle('hidden', !isDark);
+      document.getElementById('iconMoon').classList.toggle('hidden', isDark);
+    }
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    let allPosts = [];
+
+    // Load and display posts from posts.json
+    async function loadPosts() {
+      try {
+        const res = await fetch('posts/posts.json');
+        allPosts = await res.json();
+        renderPosts(allPosts);
+        buildTagFilter(allPosts);
+      } catch {
+        document.getElementById('posts-list').innerHTML = `
+          <p class="text-sm text-[#AAAAAA]">
+            ⚠️ Posts can't load when opening HTML directly as a file.<br>
+            Use <strong>VS Code Live Server</strong> extension to run the site locally.
+          </p>`;
+      }
+    }
+
+    // Build tag filter buttons from all posts
+    function buildTagFilter(posts) {
+      const allTags = new Set();
+      posts.forEach(p => p.tags && p.tags.forEach(t => allTags.add(t)));
+
+      const container = document.getElementById('tag-filter');
+      allTags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.setAttribute('data-tag', tag);
+        btn.onclick = () => filterByTag(tag);
+        btn.className = 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:border-[#C2533A] hover:text-[#C2533A] transition-colors';
+        btn.textContent = tag;
+        container.appendChild(btn);
+      });
+    }
+
+    // Filter posts by tag
+    function filterByTag(tag) {
+      // Update active button style
+      document.querySelectorAll('.tag-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-tag') === tag;
+        btn.className = isActive
+          ? 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#C2533A] bg-[#C2533A] text-white transition-colors'
+          : 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:border-[#C2533A] hover:text-[#C2533A] transition-colors';
+      });
+
+      const filtered = tag === 'all' ? allPosts : allPosts.filter(p => p.tags && p.tags.includes(tag));
+      renderPosts(filtered);
+    }
+
+    // Render post list
+    function renderPosts(posts) {
+      const container = document.getElementById('posts-list');
+      const emptyState = document.getElementById('empty-state');
+
+      if (posts.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      container.innerHTML = posts.map((post, i) => `
+        <a href="post.html?slug=${post.slug}"
+          class="group flex items-start justify-between py-6 ${i < posts.length - 1 ? 'border-b border-[#E2E1D9] dark:border-[#2A2A27]' : ''} hover:opacity-70 transition-opacity">
+          <div class="flex-1 pr-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-xs text-[#C2533A] font-medium">${post.date}</span>
+              ${post.tags ? post.tags.map(t => `<span class="px-2 py-0.5 text-xs bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">${t}</span>`).join('') : ''}
+            </div>
+            <h2 class="font-display font-semibold text-xl mb-1">${post.title}</h2>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">${post.excerpt}</p>
+          </div>
+          <svg class="w-5 h-5 mt-1 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      `).join('');
+    }
+
+    loadPosts();
+  </script>
+
+</body>
+</html>
