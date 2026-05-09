@@ -415,7 +415,7 @@
     // Reads from posts/posts.json and shows the latest 3 posts
     async function loadLatestPosts() {
       try {
-        const response = await fetch('posts/posts.json');
+        const response = await fetch('portfolio/posts/posts.json');
         const posts = await response.json();
 
         const container = document.getElementById('latest-posts');
@@ -444,9 +444,7 @@
         // If the file can't be loaded (e.g., opening HTML directly without a server)
         document.getElementById('latest-posts').innerHTML = `
           <p class="text-sm text-[#AAAAAA]">
-            ⚠️ Posts can't load when opening HTML directly. 
-            Use <strong>VS Code Live Server</strong> extension to run the site.
-          </p>
+            ⚠️ Posts can't load...</p>
         `;
       }
     }
