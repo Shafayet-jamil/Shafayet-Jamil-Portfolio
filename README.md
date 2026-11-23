@@ -21,7 +21,7 @@ portfolio/
 │   └── cs-journey.md
 │
 ├── assets/
-│   └── resume.pdf      ← Put your resume PDF here!
+│   └── Shafayet_Jamil.pdf  ← CV shown by the "Download CV" buttons
 │
 └── README.md           ← This file
 ```
@@ -45,8 +45,12 @@ portfolio/
 ### 🔗 Update your social links
 Search for `YOUR_USERNAME` and `your@email.com` in every `.html` file and replace them with your real links.
 
-### 📄 Add your resume
-Put your resume PDF file in the `assets/` folder and name it `resume.pdf`.
+### 📄 Update your CV
+The editable CV is `cv/Shafayet_Jamil_CV.docx`. Export it to PDF and save it as
+`portfolio/assets/Shafayet_Jamil.pdf` (same name, so every link keeps working).
+
+### 🏅 Certificates link
+The certificates folder link is the "View all certificates" card at the bottom of `about.html`.
 
 ---
 
@@ -116,12 +120,15 @@ Open `projects.html`, find the comment that says `---- ADD NEW PROJECT HERE ----
 
 ## 🌍 How to Deploy (Put it Online for Free)
 
-### Option 1: GitHub Pages (recommended)
-1. Create a GitHub account
-2. Create a new repository
-3. Upload all your portfolio files
-4. Go to Settings → Pages → set source to main branch
-5. Your site goes live at `https://YOUR_USERNAME.github.io/REPO_NAME`
+### Vercel (current live site)
+Live at https://shafayet-jamil-portfolio.vercel.app — Vercel's project **Root Directory** is `portfolio`.
+
+### GitHub Pages
+1. Go to the repository's Settings → Pages
+2. Source: **Deploy from a branch** → `main` → `/ (root)` → Save
+3. The site goes live at `https://shafayet-jamil.github.io/Shafayet-Jamil-Portfolio/`
+
+The root `index.html` redirects to `portfolio/`, and `.nojekyll` stops Jekyll from processing the files.
 
 ### Option 2: Netlify
 1. Go to [netlify.com](https://netlify.com)

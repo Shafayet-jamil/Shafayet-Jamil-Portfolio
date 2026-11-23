@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shafayet Jamil — CS Student</title>
+  <meta name="description" content="Shafayet Jamil, Computer Science student at Jagannath University. Projects in Flutter, React, IoT and data science." />
 
   <!-- ====================================================
     FONTS — Google Fonts (loaded from internet)
@@ -48,6 +49,9 @@
     CUSTOM CSS — small things Tailwind can't do easily
   ==================================================== -->
   <style>
+    /* Base font size: 112.5% = 18px (default 16px). Every Tailwind size scales with it. */
+    html { font-size: 112.5%; }
+
     body {
       font-family: 'Outfit', sans-serif;
     }
@@ -210,7 +214,7 @@
       <div class="max-w-xl flex-1">
         <!-- Small label above name — EDIT THIS -->
         <p class="fade-up delay-1 text-xs uppercase tracking-[0.2em] text-[#C2533A] font-medium mb-4">
-          Computer Science Student
+          Computer Science Student · Jagannath University
         </p>
 
         <!-- Your main headline — EDIT THIS -->
@@ -220,8 +224,8 @@
 
         <!-- Short bio — EDIT THIS -->
         <p class="fade-up delay-3 text-[#5A5A5A] dark:text-[#AAAAAA] text-lg leading-relaxed mb-10 max-w-lg">
-          I'm a CS student who loves building things on the web, exploring ideas,
-          and writing about what I learn along the way.
+          I build mobile and web apps, IoT monitoring tools and data projects.
+          Right now I'm researching low-cost IoT measurement of carbon dioxide in Old Dhaka.
         </p>
 
         <!-- CTA Buttons — EDIT LINKS AS NEEDED -->
@@ -230,9 +234,13 @@
             class="px-6 py-3 bg-[#18181B] dark:bg-[#ECEAE3] text-[#F5F4EF] dark:text-[#18181B] text-sm font-semibold rounded-full hover:opacity-80 transition-opacity">
             View My Projects →
           </a>
-          <a href="blog.html"
+          <a href="assets/Shafayet_Jamil.pdf" target="_blank"
             class="px-6 py-3 border border-[#C2533A] text-[#C2533A] text-sm font-semibold rounded-full hover:bg-[#C2533A] hover:text-white transition-colors">
-            Read My Blog
+            Download CV
+          </a>
+          <a href="about.html#certificates"
+            class="px-6 py-3 border border-[#E2E1D9] dark:border-[#2A2A27] text-sm font-semibold rounded-full hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">
+            Certificates
           </a>
         </div>
       </div>
@@ -243,26 +251,6 @@
           class="w-56 h-56 md:w-72 md:h-72 rounded-2xl object-cover border border-[#E2E1D9] dark:border-[#2A2A27] shadow-sm" />
       </div>
     </div>
-    <!-- <div>
-        HERE IS MY PHOTO CARD
-        <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-0 w-96">
-          <div class="m-0 overflow-hidden rounded-md h-80 flex justify-center items-center">
-            <img class="w-full h-full object-cover" src="assets/profile.jpg"
-              alt="profile-picture" />
-          </div>
-          <div class="p-6 text-center">
-            <h4 class="mb-1 text-xl font-semibold text-slate-800">
-              Shafayet Jamil
-            </h4>
-            <p class="text-sm font-semibold text-slate-500 uppercase">
-              Software Engineer
-            </p>
-    
-          </div>
-        </div>
-      </div>
-     -->
-    <!-- </div> -->
 
     <!-- Decorative line -->
     <div class="mt-24 mb-16 h-px bg-[#E2E1D9] dark:bg-[#2A2A27]"></div>
@@ -281,69 +269,90 @@
       <!-- Project Cards Grid — EDIT/ADD CARDS HERE -->
       <div class="grid md:grid-cols-2 gap-6" id="featured-projects">
 
-        <!-- ---- PROJECT CARD 1 — EDIT THIS ---- -->
-        <a href="projects.html"
+        <a href="https://github.com/Shafayet-jamil/smart-pond-monitoring" target="_blank" rel="noopener"
           class="group block p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm">
           <div class="flex items-start justify-between mb-3">
-            <span class="text-2xl"> 🛠️</span>
+            <span class="text-2xl">🐟</span>
             <svg
               class="w-4 h-4 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M7 17L17 7M7 7h10v10" />
             </svg>
           </div>
-          <h3 class="font-display font-semibold text-lg mb-2">Smart Dictionary</h3>
+          <h3 class="font-display font-semibold text-lg mb-2">Smart Pond — Digital Twin</h3>
           <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-4">
-            This smart dictionary can give you the meaning of your selected word on your browser and pdf. It is built using JavaScript and the Free Dictionary API. I learned how to work with APIs and create browser extensions while building this project.
+            Flutter app and web dashboard for small fish ponds. Reads ESP32 sensors over MQTT, detects multi-sensor anomalies such as possible contamination, and controls the aerator and feeder.
           </p>
-          <!-- Tags — EDIT these to match your tech stack -->
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML</span>
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">CSS</span>
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flutter</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Dart</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">MQTT</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">ESP32</span>
           </div>
         </a>
 
-        <!-- ---- PROJECT CARD 2 — EDIT THIS ---- -->
-        <a href="projects.html"
+        <a href="https://github.com/Shafayet-jamil/veri_med_app" target="_blank" rel="noopener"
           class="group block p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm">
           <div class="flex items-start justify-between mb-3">
-            <span class="text-2xl">📊</span>
+            <span class="text-2xl">💊</span>
             <svg
               class="w-4 h-4 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M7 17L17 7M7 7h10v10" />
             </svg>
           </div>
-          <h3 class="font-display font-semibold text-lg mb-2">Etch-a-Sketch</h3>
+          <h3 class="font-display font-semibold text-lg mb-2">MediChecker</h3>
           <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-4">
-            This is a web-based Etch-a-Sketch drawing app built with JavaScript. It allows users to create colorful drawings on a grid canvas, with options to adjust the grid size and choose different colors. I built this project to learn how to use JavaScript DOM manipulation and event handling. 
+            Identifies a medicine from a package photo (OCR) or its DAR/MA registration number, and checks selected medicines for known drug interactions.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">DOM</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flutter</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Python</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flask</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">EasyOCR</span>
           </div>
         </a>
 
-
-        <!-- ---- PROJECT CARD 3 — EDIT THIS ---- -->
-        <a href="projects.html"
+        <a href="https://github.com/Shafayet-jamil/final-assignment-gci" target="_blank" rel="noopener"
           class="group block p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm">
           <div class="flex items-start justify-between mb-3">
-            <span class="text-2xl">📊</span>
+            <span class="text-2xl">📈</span>
             <svg
               class="w-4 h-4 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M7 17L17 7M7 7h10v10" />
             </svg>
           </div>
-          <h3 class="font-display font-semibold text-lg mb-2">Basic Landing Page</h3>
+          <h3 class="font-display font-semibold text-lg mb-2">Telecom Churn Prediction</h3>
           <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-4">
-            This is a simple yet elegant landing page built with HTML and CSS. It features a responsive design, smooth animations, and a clean layout to showcase a product or service. I built this project to practice my front-end development skills and learn more about responsive design principles.
+            GCI World 2026 final assignment. Compared logistic regression and gradient-boosted models on 100,000 customers (best test ROC-AUC 0.709) and built a retention-targeting rule.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML</span>
-            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">CSS</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Python</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">pandas</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">LightGBM</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">XGBoost</span>
+          </div>
+        </a>
+
+        <a href="https://damadami.vercel.app" target="_blank" rel="noopener"
+          class="group block p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm">
+          <div class="flex items-start justify-between mb-3">
+            <span class="text-2xl">🛍️</span>
+            <svg
+              class="w-4 h-4 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
+              fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Damadami (দামাদামি)</h3>
+          <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-4">
+            A daily bargaining game in Bangla: talk the vendor down before his patience runs out. 6 vendors, 67 market items, voiced lines, works offline.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">PWA</span>
+            <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Bangla TTS</span>
           </div>
         </a>
       </div>
@@ -387,7 +396,6 @@
     JAVASCRIPT
   ============================================ -->
   <script>
-    import { SpeedInsights } from "@vercel/speed-insights/next"
     // ---- DARK MODE ----
     // On page load, check if user had dark mode on before
     if (localStorage.getItem('darkMode') === 'true') {
@@ -415,7 +423,7 @@
     // Reads from posts/posts.json and shows the latest 3 posts
     async function loadLatestPosts() {
       try {
-        const response = await fetch('portfolio/posts/posts.json');
+        const response = await fetch('posts/posts.json');
         const posts = await response.json();
 
         const container = document.getElementById('latest-posts');

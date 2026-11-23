@@ -27,6 +27,9 @@
   </script>
 
   <style>
+    /* Base font size: 112.5% = 18px (default 16px). Every Tailwind size scales with it. */
+    html { font-size: 112.5%; }
+
     body {
       font-family: 'Outfit', sans-serif;
     }
@@ -171,17 +174,15 @@
         <!-- EDIT THIS: Your bio. Write 2-3 paragraphs about yourself -->
         <div class="fade-up delay-3 space-y-4 text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">
           <p>
-            I'm a Computer Science student with a passion for building things on the web.
-            I started coding out of curiosity and quickly fell in love with how you can
-            create something from nothing but text.
+            I'm a Computer Science undergraduate at Jagannath University, Dhaka. I build mobile and web apps
+            with Flutter, React and Firebase, and small data science projects in Python.
           </p>
           <p>
-            I love learning in public — which is why I started this blog. I share my
-            notes, projects, and ideas here, mostly for myself, but hopefully useful to others too.
+            My current research measures carbon dioxide in Old Dhaka with a low-cost IoT device,
+            supervised by Dr. Monwarul Islam. I'm applying for Master's programmes (September 2028 intake).
           </p>
           <p>
-            When I'm not coding, you'll find me reading, exploring new tech,
-            or experimenting with side projects.
+            I also write here about what I learn.
           </p>
         </div>
       </div>
@@ -193,52 +194,46 @@
           <h3 class="font-display font-semibold mb-4">Quick Facts</h3>
           <!-- EDIT THIS: Your details -->
           <ul class="space-y-3 text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">
-            <li class="flex items-center gap-3">
-              <span class="text-lg">🎓</span>
-              <span>CS Student (currently studying)</span>
+            <li class="flex items-start gap-3">
+              <span class="text-lg leading-none">🎓</span>
+              <span>BSc in Computer Science, Jagannath University — CGPA 3.41/4.00 (expected Nov 2027)</span>
             </li>
-            <li class="flex items-center gap-3">
-              <span class="text-lg">📍</span>
-              <span>Bangladesh</span>
+            <li class="flex items-start gap-3">
+              <span class="text-lg leading-none">🔬</span>
+              <span>Research: IoT-based CO<sub>2</sub> measurement in Old Dhaka</span>
             </li>
-            <li class="flex items-center gap-3">
-              <span class="text-lg">💻</span>
-              <span>Interested in Web Development & CS fundamentals</span>
+            <li class="flex items-start gap-3">
+              <span class="text-lg leading-none">💻</span>
+              <span>Flutter, React, Firebase, Python, Java, C/C++</span>
             </li>
-            <li class="flex items-center gap-3">
-              <span class="text-lg">📖</span>
-              <span>Learning something new every day</span>
+            <li class="flex items-start gap-3">
+              <span class="text-lg leading-none">📍</span>
+              <span>Dhaka, Bangladesh</span>
             </li>
-            <li class="flex items-center gap-3">
-              <span class="text-lg">✉️</span>
-              <!-- EDIT: Your email -->
+            <li class="flex items-start gap-3">
+              <span class="text-lg leading-none">✉️</span>
               <a href="mailto:mdshafayetjamil@outlook.com"
-                class="text-[#C2533A] hover:underline">mdshafayetjamil@outlook.com</a>
+                class="text-[#C2533A] hover:underline break-all">mdshafayetjamil@outlook.com</a>
             </li>
           </ul>
         </div>
 
         <!-- Resume Download Button -->
         <!-- EDIT: Replace "assets/resume.pdf" with your actual resume file -->
-        <a href="assets/Shafayet_Jamil.pdf" download
+        <a href="assets/Shafayet_Jamil.pdf" target="_blank"
           class="flex items-center justify-center gap-2 w-full py-3 bg-[#18181B] dark:bg-[#ECEAE3] text-[#F5F4EF] dark:text-[#18181B] text-sm font-semibold rounded-full hover:opacity-80 transition-opacity">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
           </svg>
-          Download Resume
+          Download CV
         </a>
 
         <!-- Social Links -->
-        <div class="flex gap-3">
-          <!-- EDIT: Replace # with your actual links -->
-          <a href="https://github.com/Shafayet_jamil" target="_blank"
-            class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/shafayet-jamil" target="_blank"
-            class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">
-            LinkedIn
-          </a>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="https://github.com/Shafayet-jamil" target="_blank" rel="noopener" class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/shafayet-jamil" target="_blank" rel="noopener" class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=LHiA0FwAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">Google Scholar</a>
+          <a href="https://orcid.org/0009-0007-4099-3050" target="_blank" rel="noopener" class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-full text-sm font-medium hover:border-[#C2533A] hover:text-[#C2533A] transition-colors">ORCID</a>
         </div>
       </div>
     </div>
@@ -339,6 +334,27 @@
         <!-- ADD MORE SKILLS: copy a block above and change the values -->
 
       </div>
+
+      <h3 class="font-display font-semibold text-lg mt-12 mb-4">Also worked with</h3>
+      <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">C</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">C++</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Java</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Dart</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flutter</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">React</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Firebase</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flask</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">MQTT / ESP32</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">pandas</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">scikit-learn</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Go (basic)</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">SPSS</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">R (basic)</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">NVivo</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Zotero</span>
+          <span class="px-3 py-1.5 text-sm font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">LaTeX</span>
+      </div>
     </section>
 
     <!-- =============================================
@@ -363,6 +379,15 @@
             change the year, title, institution, and description.
           ============================================= -->
 
+<!-- Timeline Item 0 — Research -->
+          <div class="relative">
+            <div class="absolute -left-[37px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-[#C2533A] bg-[#F5F4EF] dark:bg-[#141412]"></div>
+            <span class="text-xs text-[#C2533A] font-medium uppercase tracking-wider">Oct 2026 — Present</span>
+            <h3 class="font-display font-semibold text-lg mt-1 mb-0.5">Research: CO<sub>2</sub> Measurement of an Area</h3>
+            <p class="text-sm font-medium text-[#888] mb-2">Supervisor: Dr. Monwarul Islam, Professor, Dept. of Computer Science, Jagannath University</p>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">Measuring the carbon dioxide level of Old Dhaka with a low-cost IoT device.</p>
+          </div>
+
           <!-- Timeline Item 1 — Most recent first -->
           <div class="relative">
             <!-- Dot on the line -->
@@ -378,10 +403,26 @@
             <p class="text-sm font-medium text-[#888] mb-2">Jagannath University</p>
             <!-- EDIT: Description -->
             <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">
-              Currently studying core CS subjects including data structures, algorithms,
-              OOP,DBMS, Operating Systems, Computer Networks and web development. Actively building projects alongside
-              coursework.
+              CGPA 3.41/4.00 (5th semester in progress), expected graduation November 2027. Coursework includes data
+              structures and algorithms, OOP, computer networks, computer architecture, compiler design, data science and
+              software engineering.
             </p>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-[37px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-[#E2E1D9] dark:border-[#2A2A27] bg-[#F5F4EF] dark:bg-[#141412]"></div>
+            <span class="text-xs text-[#888] font-medium uppercase tracking-wider">July 2026</span>
+            <h3 class="font-display font-semibold text-lg mt-1 mb-0.5">Beginning to Advance Research Course</h3>
+            <p class="text-sm font-medium text-[#888] mb-2">Research Help Bangladesh (RHB), Dhaka</p>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">Research methodology and referencing, literature review, research proposals, quantitative and qualitative analysis; training in SPSS, R, NVivo, Zotero and KoBo Toolbox.</p>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-[37px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-[#E2E1D9] dark:border-[#2A2A27] bg-[#F5F4EF] dark:bg-[#141412]"></div>
+            <span class="text-xs text-[#888] font-medium uppercase tracking-wider">Jan 2023 — Dec 2026</span>
+            <h3 class="font-display font-semibold text-lg mt-1 mb-0.5">One-to-One Teaching and Private Coaching</h3>
+            <p class="text-sm font-medium text-[#888] mb-2">Jatrabari, Laxmibazar and Tikatuli, Dhaka</p>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">Taught HSC-level Physics, Chemistry and Mathematics to university admission candidates.</p>
           </div>
 
           <!-- Timeline Item 2 -->
@@ -394,7 +435,7 @@
             <p class="text-sm font-medium text-[#888] mb-2">Self-taught</p>
             <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">
               Solving problems on platforms like LeetCode and Codeforces to improve my algorithmic thinking and coding
-              skills. Currently at a medium level, but making steady progress.Also giving 80+ online content on
+              skills. Currently at a medium level, but making steady progress. Also took part in 80+ online contests on
               codeforces, leetcode, codechef and hackerrank. My current rating on codeforces is <span
                 class="font-bold text-[#C2533A]">1000+</span> and on leetcode is <span
                 class="font-bold text-[#C2533A]">1300+</span>.
@@ -410,8 +451,7 @@
             <h3 class="font-display font-semibold text-lg mt-1 mb-0.5">HSC Completed</h3>
             <p class="text-sm font-medium text-[#888] mb-2">Abdul Kadir Mollah City College</p>
             <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">
-              Completed higher secondary education. Developed a strong interest
-              in mathematics and logical problem-solving.
+              Science group, GPA 5.00/5.00 (including Higher Mathematics).
             </p>
           </div>
 
@@ -424,8 +464,7 @@
             <h3 class="font-display font-semibold text-lg mt-1 mb-0.5">SSC Completed</h3>
             <p class="text-sm font-medium text-[#888] mb-2">AL Haj Bazlul Haq J.M. High School</p>
             <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">
-              Completed secondary education. Developed a strong interest
-              in basic science and mathematics.
+              Science group, GPA 5.00/5.00.
             </p>
           </div>
           <!-- ADD MORE ITEMS: copy a <div class="relative"> block above -->
@@ -502,20 +541,41 @@
       </div>
     </section>
 
-    <!-- HERE IS MY ALL CERTIFICATE LIST -->
+    <!-- HERE IS MY ALL CERTIFICATE LIST
+      To change the certificate folder link, edit the href of the "View all certificates" button. -->
 
-    <section>
+    <section id="certificates" class="scroll-mt-28">
       <div class="h-px bg-[#E2E1D9] dark:bg-[#2A2A27] mt-14 mb-14"></div>
-      <h2 class="font-display text-2xl font-semibold mb-2">My Achievements and Certificates</h2>
-      <p class="text-[#888] text-sm mb-10">Throughout my academic journey, I have earned several certificates and accolades that reflect my dedication to learning and personal growth. These achievements not only highlight my commitment to excellence but also serve as milestones in my ongoing pursuit of knowledge and skill development.
-      </p>
+      <h2 class="font-display text-2xl font-semibold mb-2">Achievements & Certificates</h2>
+      <p class="text-[#888] text-sm mb-8">All my certificates are kept in one OneDrive folder.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl bg-white/30 dark:bg-white/5">
+          <span class="text-2xl">📜</span>
+          <h3 class="font-display font-semibold text-lg mt-3 mb-1">Beginning to Advance Research Course</h3>
+          <p class="text-sm font-medium text-[#888] mb-2">Research Help Bangladesh · July 2026</p>
+          <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">Research methodology, systematic literature review, SPSS, R, NVivo and Zotero.</p>
+        </div>
+
+        <a href="https://onedrive.live.com/my?id=%2Fpersonal%2Fef06b45ca1594092%2FDocuments%2FMy%20Cirtificates%20For%20Hire%20Studies&amp;sortField=Modified&amp;isAscending=true&amp;viewid=db9af0a5%2D80e4%2D471a%2D80fd%2D4ef21a5c2a3e" target="_blank" rel="noopener"
+          class="group flex flex-col justify-between p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+          <div class="flex items-start justify-between">
+            <span class="text-2xl">🏅</span>
+            <svg class="w-4 h-4 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-lg mt-3 mb-1">View all certificates</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">Opens my certificate folder on OneDrive.</p>
+          </div>
+        </a>
+      </div>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer class="border-t border-[#E2E1D9] dark:border-[#2A2A27] mt-16">
     <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-[#888]">© 2025 Shafayet Jamil. Built with HTML, Tailwind & ☕</p>
+      <p class="text-sm text-[#888]">© 2026 Shafayet Jamil. Built with HTML, Tailwind & ☕</p>
       <div class="flex gap-6 text-sm text-[#888]">
         <a href="https://github.com/Shafayet-jamil" target="_blank"
           class="hover:text-[#C2533A] transition-colors">GitHub</a>
