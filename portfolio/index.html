@@ -46,6 +46,16 @@
   </script>
 
   <!-- ====================================================
+    VERCEL WEB ANALYTICS — visitor tracking
+    (plain-HTML version of @vercel/analytics; the script is served by
+    Vercel once Analytics is enabled in the project dashboard)
+  ==================================================== -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- ====================================================
     CUSTOM CSS — small things Tailwind can't do easily
   ==================================================== -->
   <style>
