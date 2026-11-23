@@ -3,7 +3,7 @@
 //  Guests' posts are saved as "pending" until the admin publishes them.
 //  The admin's own posts are published straight away.
 // =====================================================================
-import { getFirebase, isConfigured, isAdmin, escapeHtml, renderMarkdown, toDate, formatDate } from './blog.js';
+import { getFirebase, isConfigured, isAdmin, escapeHtml, renderMarkdown, toDate, formatDate, signInWithGoogle } from './blog.js';
 
 const $ = id => document.getElementById(id);
 const DRAFT_KEY = 'blogDraft';
@@ -245,8 +245,7 @@ async function init() {
 
   $('signInBtn').onclick = async () => {
     $('signInError').textContent = '';
-    try { await A.signInWithPopup(auth, new A.GoogleAuthProvider()); }
-    catch (e) { if (e.code !== 'auth/popup-closed-by-user') $('signInError').textContent = 'Sign-in failed. Allow pop-ups for this site and try again.'; }
+    $('signInError').textContent = await signInWithGoogle(fb);
   };
   $('signOutBtn').onclick = () => A.signOut(auth);
   $('postForm').addEventListener('submit', submitPost);

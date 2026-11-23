@@ -36,6 +36,33 @@ export function getFirebase() {
   return firebasePromise;
 }
 
+// Google sign-in. Tries a pop-up first; if the browser blocks pop-ups,
+// it switches to a full-page redirect. Returns an error message to show,
+// or '' when sign-in worked (or the redirect has started).
+export async function signInWithGoogle(fb) {
+  const { auth, A } = fb;
+  const provider = new A.GoogleAuthProvider();
+  try {
+    await A.signInWithPopup(auth, provider);
+    return '';
+  } catch (e) {
+    const code = e && e.code ? e.code : 'unknown';
+    if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') return '';
+    if (code === 'auth/popup-blocked') {
+      try { await A.signInWithRedirect(auth, provider); return ''; } catch { /* fall through */ }
+    }
+    const messages = {
+      'auth/popup-blocked': 'Your browser blocked the sign-in pop-up. Allow pop-ups for this site and try again.',
+      'auth/unauthorized-domain': `This address (${location.hostname}) isn't allowed yet. Add it in Firebase → Authentication → Settings → Authorized domains.`,
+      'auth/operation-not-allowed': 'Google sign-in is turned off in Firebase → Authentication → Sign-in method.',
+      'auth/network-request-failed': 'Sign-in was blocked by your browser or network. In Brave, turn Shields off for this site (lion icon in the address bar) and try again.',
+      'auth/internal-error': 'Sign-in was blocked by your browser. In Brave, turn Shields off for this site (lion icon in the address bar) and try again.',
+      'auth/web-storage-unsupported': 'Your browser is blocking the storage sign-in needs. Turn off Brave Shields or strict tracking protection for this site.',
+    };
+    return `${messages[code] || 'Sign-in failed. Please try again.'} (${code})`;
+  }
+}
+
 export function isAdmin(user) {
   if (!user || !user.emailVerified || !user.email) return false;
   return ADMIN_EMAILS.map(e => e.toLowerCase()).includes(user.email.toLowerCase());

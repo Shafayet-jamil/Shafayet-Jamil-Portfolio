@@ -3,7 +3,7 @@
 //  reject (with a note for the author), unpublish, edit or delete.
 //  firestore.rules blocks everyone else even if they open this page.
 // =====================================================================
-import { getFirebase, isConfigured, isAdmin, escapeHtml, renderMarkdown, toDate, formatDate } from './blog.js';
+import { getFirebase, isConfigured, isAdmin, escapeHtml, renderMarkdown, toDate, formatDate, signInWithGoogle } from './blog.js';
 
 const $ = id => document.getElementById(id);
 let fb = null;
@@ -127,7 +127,7 @@ async function init() {
   if (!isConfigured) return show('notConfigured');
   try { fb = await getFirebase(); } catch (e) { console.error(e); return show('notConfigured'); }
   const { auth, A } = fb;
-  $('signInBtn').onclick = () => A.signInWithPopup(auth, new A.GoogleAuthProvider()).catch(() => {});
+  $('signInBtn').onclick = async () => { $('signInError').textContent = await signInWithGoogle(fb); };
   document.querySelectorAll('.signOutBtn').forEach(b => { b.onclick = () => A.signOut(auth); });
   document.querySelectorAll('[data-tab]').forEach(b => { b.onclick = () => setTab(b.dataset.tab); });
   $('reviewList').addEventListener('click', e => {
