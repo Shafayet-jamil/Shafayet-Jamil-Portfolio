@@ -101,9 +101,13 @@
         My ideas, learnings, tutorials, and thoughts as a CS student. 
         If I found it useful, I write about it.
       </p>
+      <a href="write.html"
+        class="fade-up delay-2 inline-flex items-center gap-2 mt-6 px-5 py-2.5 border border-[#C2533A] text-[#C2533A] text-sm font-semibold rounded-full hover:bg-[#C2533A] hover:text-white transition-colors">
+        ✍️ Write a post
+      </a>
     </div>
 
-    <!-- Tag Filter — tags are populated by JS from posts.json -->
+    <!-- Tag Filter — tags are populated by JS from all posts -->
     <div id="tag-filter" class="flex flex-wrap gap-2 mb-10">
       <button onclick="filterByTag('all')" data-tag="all"
         class="tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#C2533A] bg-[#C2533A] text-white transition-colors">
@@ -153,14 +157,19 @@
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     }
+  </script>
+
+  <!-- Posts: Markdown files from posts/posts.json + published posts written on write.html -->
+  <script type="module">
+    import { loadAllPosts, postUrl, escapeHtml } from './js/blog.js';
 
     let allPosts = [];
+    const activeCls = 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#C2533A] bg-[#C2533A] text-white transition-colors';
+    const idleCls = 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:border-[#C2533A] hover:text-[#C2533A] transition-colors';
 
-    // Load and display posts from posts.json
     async function loadPosts() {
       try {
-        const res = await fetch('posts/posts.json');
-        allPosts = await res.json();
+        allPosts = await loadAllPosts();
         renderPosts(allPosts);
         buildTagFilter(allPosts);
       } catch {
@@ -175,14 +184,13 @@
     // Build tag filter buttons from all posts
     function buildTagFilter(posts) {
       const allTags = new Set();
-      posts.forEach(p => p.tags && p.tags.forEach(t => allTags.add(t)));
-
+      posts.forEach(p => (p.tags || []).forEach(t => allTags.add(t)));
       const container = document.getElementById('tag-filter');
       allTags.forEach(tag => {
         const btn = document.createElement('button');
         btn.setAttribute('data-tag', tag);
         btn.onclick = () => filterByTag(tag);
-        btn.className = 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:border-[#C2533A] hover:text-[#C2533A] transition-colors';
+        btn.className = idleCls;
         btn.textContent = tag;
         container.appendChild(btn);
       });
@@ -190,40 +198,34 @@
 
     // Filter posts by tag
     function filterByTag(tag) {
-      // Update active button style
       document.querySelectorAll('.tag-btn').forEach(btn => {
-        const isActive = btn.getAttribute('data-tag') === tag;
-        btn.className = isActive
-          ? 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#C2533A] bg-[#C2533A] text-white transition-colors'
-          : 'tag-btn px-3 py-1.5 text-xs font-medium rounded-full border border-[#E2E1D9] dark:border-[#2A2A27] hover:border-[#C2533A] hover:text-[#C2533A] transition-colors';
+        btn.className = btn.getAttribute('data-tag') === tag ? activeCls : idleCls;
       });
-
-      const filtered = tag === 'all' ? allPosts : allPosts.filter(p => p.tags && p.tags.includes(tag));
-      renderPosts(filtered);
+      renderPosts(tag === 'all' ? allPosts : allPosts.filter(p => (p.tags || []).includes(tag)));
     }
+    window.filterByTag = filterByTag; // used by the "All" button
 
     // Render post list
     function renderPosts(posts) {
       const container = document.getElementById('posts-list');
       const emptyState = document.getElementById('empty-state');
-
       if (posts.length === 0) {
         container.innerHTML = '';
         emptyState.classList.remove('hidden');
         return;
       }
-
       emptyState.classList.add('hidden');
       container.innerHTML = posts.map((post, i) => `
-        <a href="post.html?slug=${post.slug}"
+        <a href="${postUrl(post)}"
           class="group flex items-start justify-between py-6 ${i < posts.length - 1 ? 'border-b border-[#E2E1D9] dark:border-[#2A2A27]' : ''} hover:opacity-70 transition-opacity">
           <div class="flex-1 pr-6">
             <div class="flex flex-wrap items-center gap-2 mb-2">
-              <span class="text-xs text-[#C2533A] font-medium">${post.date}</span>
-              ${post.tags ? post.tags.map(t => `<span class="px-2 py-0.5 text-xs bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">${t}</span>`).join('') : ''}
+              <span class="text-xs text-[#C2533A] font-medium">${escapeHtml(post.date)}</span>
+              ${post.authorName ? `<span class="text-xs text-[#888]">by ${escapeHtml(post.authorName)}</span>` : ''}
+              ${(post.tags || []).map(t => `<span class="px-2 py-0.5 text-xs bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">${escapeHtml(t)}</span>`).join('')}
             </div>
-            <h2 class="font-display font-semibold text-xl mb-1">${post.title}</h2>
-            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">${post.excerpt}</p>
+            <h2 class="font-display font-semibold text-xl mb-1">${escapeHtml(post.title)}</h2>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA] leading-relaxed">${escapeHtml(post.excerpt)}</p>
           </div>
           <svg class="w-5 h-5 mt-1 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"/>
