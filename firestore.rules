@@ -1,0 +1,76 @@
+rules_version = '2';
+
+// Firestore security rules for the portfolio blog.
+// Paste this into Firebase console → Firestore Database → Rules → Publish.
+//
+// What they enforce (even if someone bypasses the website):
+//  • Anyone can read PUBLISHED posts.
+//  • Signed-in users can submit posts, but only as "pending".
+//  • Authors can see, edit and delete their own posts until they are published.
+//  • Only the admin email(s) below can publish, reject, unpublish or edit any post.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Keep this list the same as ADMIN_EMAILS in portfolio/js/firebase-config.js
+    function isAdmin() {
+      return signedIn()
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in ['shafayetjamil000@gmail.com'];
+    }
+
+    function validPost(d) {
+      return d.keys().hasAll(['title', 'excerpt', 'tags', 'content', 'authorUid', 'authorName',
+                              'authorPhoto', 'status', 'createdAt', 'updatedAt', 'publishedAt', 'reviewNote'])
+        && d.keys().hasOnly(['title', 'excerpt', 'tags', 'content', 'authorUid', 'authorName',
+                             'authorPhoto', 'status', 'createdAt', 'updatedAt', 'publishedAt', 'reviewNote'])
+        && d.title is string && d.title.size() > 0 && d.title.size() <= 150
+        && d.excerpt is string && d.excerpt.size() <= 300
+        && d.tags is list && d.tags.size() <= 6
+        && d.content is string && d.content.size() > 0 && d.content.size() <= 100000
+        && d.authorName is string && d.authorName.size() <= 80
+        && d.authorPhoto is string && d.authorPhoto.size() <= 500
+        && d.reviewNote is string && d.reviewNote.size() <= 500
+        && d.status in ['pending', 'published', 'rejected'];
+    }
+
+    match /posts/{postId} {
+
+      allow read: if resource.data.status == 'published'
+        || isAdmin()
+        || (signedIn() && resource.data.authorUid == request.auth.uid);
+
+      // New post: the author is always the signed-in user.
+      // Non-admins can only create "pending" posts.
+      allow create: if signedIn()
+        && validPost(request.resource.data)
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && (isAdmin()
+            || (request.resource.data.status == 'pending'
+                && request.resource.data.publishedAt == null
+                && request.resource.data.reviewNote == ''));
+
+      // Admin can change anything. An author can edit their own unpublished
+      // post, and every edit sends it back to "pending" for review.
+      allow update: if validPost(request.resource.data)
+        && (isAdmin()
+            || (signedIn()
+                && resource.data.authorUid == request.auth.uid
+                && resource.data.status != 'published'
+                && request.resource.data.authorUid == resource.data.authorUid
+                && request.resource.data.createdAt == resource.data.createdAt
+                && request.resource.data.status == 'pending'
+                && request.resource.data.publishedAt == null));
+
+      allow delete: if isAdmin()
+        || (signedIn()
+            && resource.data.authorUid == request.auth.uid
+            && resource.data.status != 'published');
+    }
+  }
+}

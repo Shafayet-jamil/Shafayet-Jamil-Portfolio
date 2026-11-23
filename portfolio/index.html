@@ -428,42 +428,31 @@
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('hidden');
     }
+  </script>
 
-    // ---- LOAD LATEST BLOG POSTS ----
-    // Reads from posts/posts.json and shows the latest 3 posts
+  <!-- LATEST BLOG POSTS — Markdown posts + published community posts, newest first -->
+  <script type="module">
+    import { loadAllPosts, postUrl, escapeHtml } from './js/blog.js';
+
     async function loadLatestPosts() {
+      const container = document.getElementById('latest-posts');
       try {
-        const response = await fetch('posts/posts.json');
-        const posts = await response.json();
-
-        const container = document.getElementById('latest-posts');
-        container.innerHTML = ''; // clear loading text
-
-        // Show only the 3 most recent posts
-        const latest = posts.slice(0, 3);
-
-        latest.forEach((post, index) => {
-          const isLast = index === latest.length - 1;
-          container.innerHTML += `
-            <a href="post.html?slug=${post.slug}"
-              class="group flex items-start justify-between py-5 ${!isLast ? 'border-b border-[#E2E1D9] dark:border-[#2A2A27]' : ''} hover:opacity-70 transition-opacity">
+        const latest = (await loadAllPosts()).slice(0, 3);
+        container.innerHTML = latest.map((post, index) => `
+            <a href="${postUrl(post)}"
+              class="group flex items-start justify-between py-5 ${index < latest.length - 1 ? 'border-b border-[#E2E1D9] dark:border-[#2A2A27]' : ''} hover:opacity-70 transition-opacity">
               <div class="flex-1 pr-6">
-                <span class="text-xs text-[#C2533A] font-medium uppercase tracking-wider">${post.date}</span>
-                <h3 class="font-display font-semibold text-lg mt-1 mb-1">${post.title}</h3>
-                <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">${post.excerpt}</p>
+                <span class="text-xs text-[#C2533A] font-medium uppercase tracking-wider">${escapeHtml(post.date)}</span>
+                <h3 class="font-display font-semibold text-lg mt-1 mb-1">${escapeHtml(post.title)}</h3>
+                <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">${escapeHtml(post.excerpt)}</p>
               </div>
               <svg class="w-4 h-4 mt-2 text-[#AAAAAA] group-hover:text-[#C2533A] group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
-          `;
-        });
+          `).join('');
       } catch (error) {
-        // If the file can't be loaded (e.g., opening HTML directly without a server)
-        document.getElementById('latest-posts').innerHTML = `
-          <p class="text-sm text-[#AAAAAA]">
-            ⚠️ Posts can't load...</p>
-        `;
+        container.innerHTML = `<p class="text-sm text-[#AAAAAA]">⚠️ Posts can't load...</p>`;
       }
     }
 

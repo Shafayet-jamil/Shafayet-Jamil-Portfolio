@@ -13,6 +13,9 @@ portfolio/
 ├── blog.html           ← Blog listing page
 ├── about.html          ← About me page
 ├── post.html           ← Single post reader (don't edit this)
+├── write.html          ← Write a post in the browser (Firebase)
+├── review.html         ← Approve or reject posts (admin only)
+├── js/                 ← Blog code + firebase-config.js (paste your Firebase config here)
 │
 ├── posts/
 │   ├── posts.json      ← List of ALL your blog posts (edit this!)
@@ -55,6 +58,12 @@ The certificates folder link is the "View all certificates" card at the bottom o
 ---
 
 ## 📝 How to Write a New Blog Post
+
+**Easiest way:** open `/write.html` on the live site, sign in with Google and click **Publish**.
+Other people can write there too; their posts wait for your approval on `/review.html`.
+This needs a one-time Firebase setup: see **[BLOG-SETUP.md](BLOG-SETUP.md)**.
+
+**Or by hand with a Markdown file** (still works):
 
 ### Step 1 — Create the Markdown file
 Create a new file in the `posts/` folder.
