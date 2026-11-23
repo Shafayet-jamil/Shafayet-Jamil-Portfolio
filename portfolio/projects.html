@@ -31,6 +31,9 @@
   </script>
 
   <style>
+    /* Base font size: 112.5% = 18px (default 16px). Every Tailwind size scales with it. */
+    html { font-size: 112.5%; }
+
     body { font-family: 'Outfit', sans-serif; }
     h1, h2, h3 { font-family: 'Lora', serif; }
     .hover-underline { position: relative; display: inline-block; }
@@ -101,8 +104,7 @@
       <p class="fade-up delay-1 text-xs uppercase tracking-[0.2em] text-[#C2533A] font-medium mb-3">What I Built</p>
       <h1 class="fade-up delay-2 font-display text-4xl md:text-5xl font-bold leading-tight mb-4">My Projects</h1>
       <p class="fade-up delay-2 text-[#5A5A5A] dark:text-[#AAAAAA] max-w-lg">
-        Things I've built, experimented with, and learned from. 
-        Each project taught me something new.
+        Apps, IoT tools and data projects I've built. Every project links to its source code.
       </p>
     </div>
 
@@ -115,118 +117,200 @@
     ===================================================== -->
     <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
 
-      <!-- ---- PROJECT 1 — EDIT THIS ---- -->
       <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
         <div class="flex items-start justify-between mb-4">
-          <span class="text-3xl">🌐</span>
-          <!-- Link to GitHub or live site. Replace # with actual URL -->
-          <a href="https://github.com/Shafayet-jamil/Shafayet-Jamil-Portfolio" target="_blank"
-            class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">
-            GitHub
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M7 17L17 7M7 7h10v10"/>
-            </svg>
-          </a>
+          <span class="text-3xl">🐟</span>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/smart-pond-monitoring" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
         </div>
-        <!-- EDIT: Project name -->
-        <h3 class="font-display font-semibold text-xl mb-2">Personal Portfolio Site</h3>
-        <!-- EDIT: What the project does -->
-        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
-          This very website! Built with HTML, Tailwind CSS, and vanilla JavaScript. 
-          Features dark mode, a blog system with Markdown support, and a clean minimal design.
+        <h3 class="font-display font-semibold text-xl mb-2">Smart Pond — Digital Twin Pond Manager</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          Flutter app (Android + web dashboard) for small fish ponds in Bangladesh. It connects to an ESP32 pond node over MQTT and keeps a digital twin of the pond.
         </p>
-        <!-- EDIT: The tech/tools you used -->
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Live DO, pH, TDS, turbidity, temperature and water level</li>
+          <li>Multi-sensor anomaly detection with “possible contamination” alerts</li>
+          <li>Aerator and feeder control, daily PDF report in Bengali and English</li>
+        </ul>
         <div class="flex flex-wrap gap-2">
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Tailwind CSS</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
-        </div>
-        <!-- OPTIONAL: Status badge — change text to "Completed", "In Progress", "Archived" -->
-        <div class="mt-4 pt-4 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
-          <span class="text-xs text-amber-600 dark:text-amber-400 font-medium">◐ In Progress </span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flutter</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Dart</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">MQTT</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">ESP32</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">IoT</span>
         </div>
       </article>
 
-      <!-- ---- PROJECT 2 — EDIT THIS ---- -->
+      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">💊</span>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/veri_med_app" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-xl mb-2">MediChecker</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          Flutter mobile app with a Python Flask API for checking medicines.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Reads a medicine package photo with OCR (EasyOCR)</li>
+          <li>Looks up a medicine by its DAR / MA registration number</li>
+          <li>Checks selected medicines for drug interactions (optional DDInter data, ~160,000 pairs)</li>
+        </ul>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flutter</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Python</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Flask</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">EasyOCR</span>
+        </div>
+      </article>
+
+      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">📈</span>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/final-assignment-gci" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-xl mb-2">Telecom Churn-Risk Prediction</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          GCI World 2026 final assignment: predict which customers of a wireless operator will leave, and who should get a retention offer.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Data quality checks, EDA and feature engineering on 100,000 customers</li>
+          <li>Logistic regression vs LightGBM, XGBoost and CatBoost with 5-fold CV; best test ROC-AUC 0.709</li>
+          <li>Expected-value targeting rule with sensitivity analysis</li>
+        </ul>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Python</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">pandas</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">scikit-learn</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">LightGBM</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">XGBoost</span>
+        </div>
+      </article>
+
+      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🛍️</span>
+          <div class="flex items-center gap-3">
+            <a href="https://damadami.vercel.app" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">Live <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+            <a href="https://github.com/Shafayet-jamil/Damadami" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-xl mb-2">Damadami (দামাদামি)</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          A daily bargaining game in Bangla. The vendor asks an inflated price and you talk him down before his patience runs out.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Daily deal, practice mode and friend challenges</li>
+          <li>6 vendor personalities, 67 items from Dhaka markets, 15 excuse cards</li>
+          <li>Every line voiced with Bangla Parler-TTS + Chatterbox; works offline</li>
+        </ul>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">PWA</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Bangla TTS</span>
+        </div>
+        <div class="mt-4 pt-4 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
+          <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">● Live</span>
+        </div>
+      </article>
+
+      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🤝</span>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/my-proxy" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-xl mb-2">My Proxy</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          Local task marketplace: users post small jobs, nearby helpers bid, and both sides rate each other after the task.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Task posting, local matching and bidding</li>
+          <li>In-app chat, notifications, wallet and referral screens</li>
+          <li>Installable PWA with background notifications</li>
+        </ul>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">React</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Vite</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Firebase</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Zustand</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Tailwind CSS</span>
+        </div>
+      </article>
+
+      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🛰️</span>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/Farming-Game" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-xl mb-2">NASA Farm Navigators</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          Educational farming game that uses NASA open data (SMAP soil moisture, IMERG rainfall, LP DAAC) to teach sustainable farming decisions.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Irrigation, fertilisation and pest management simulation</li>
+          <li>Sustainability score and three farm locations</li>
+          <li>Teacher mode with printable worksheets</li>
+        </ul>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">NASA Open Data</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML/CSS</span>
+        </div>
+        <div class="mt-4 pt-4 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
+          <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">● Completed</span>
+        </div>
+      </article>
+
+      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🩸</span>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/Life-Drop-" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
+        </div>
+        <h3 class="font-display font-semibold text-xl mb-2">LifeDrop — Blood Donation App</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          Connects blood donors and receivers with role-based dashboards.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
+          <li>Donors set blood type, city and availability</li>
+          <li>Receivers search donors and send requests</li>
+          <li>Real-time request status with Firestore listeners</li>
+        </ul>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">React</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Vite</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Firebase</span>
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">Tailwind CSS</span>
+        </div>
+      </article>
+
       <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
         <div class="flex items-start justify-between mb-4">
           <span class="text-3xl">📝</span>
-          <a href="https://github.com/Shafayet-jamil/Bangla-Dictonary" target="_blank"
-            class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">
-            GitHub
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M7 17L17 7M7 7h10v10"/>
-            </svg>
-          </a>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Shafayet-jamil/Bangla-Dictonary" target="_blank" rel="noopener" class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">GitHub <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          </div>
         </div>
-        <h3 class="font-display font-semibold text-xl mb-2">Smart Dictionary</h3>
-        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
-          This smart dictionary can give you the meaning of your selected word on your browser and pdf. It is built using JavaScript and the Free Dictionary API. I learned how to work with APIs and create browser extensions while building this project.
+        <h3 class="font-display font-semibold text-xl mb-2">Bangla Dictionary</h3>
+        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-3">
+          Select an English word in a PDF or web page and see its Bangla meaning.
         </p>
         <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
           <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML</span>
           <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">CSS</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
-        </div>
-        <div class="mt-4 pt-4 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
-          <span class="text-xs text-amber-600 dark:text-amber-400 font-medium">◐ In Progress </span>
         </div>
       </article>
 
-      <!-- ---- PROJECT 3 — EDIT THIS ---- -->
-      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
-        <div class="flex items-start justify-between mb-4">
-          <span class="text-3xl">🔢</span>
-          <a href="https://github.com/Shafayet-jamil/004-The-Oding-Project-Etch-a-Sketch" target="_blank"
-            class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">
-            GitHub
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M7 17L17 7M7 7h10v10"/>
-            </svg>
-          </a>
-        </div>
-        <h3 class="font-display font-semibold text-xl mb-2">Etch-a-Sketch</h3>
-        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
-          A fully functional Etch-a-Sketch drawing app built with vanilla JS. 
-          Great for practicing event listeners and DOM manipulation.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">CSS</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
-        </div>
-        <div class="mt-4 pt-4 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
-          <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium ">● Completed</span>
-        </div>
-      </article>
-
-
-      <!-- ---- PROJECT 4 — EDIT THIS ---- -->
-      <article class="group p-6 border border-[#E2E1D9] dark:border-[#2A2A27] rounded-2xl hover:border-[#C2533A] dark:hover:border-[#C2533A] transition-all hover:shadow-sm bg-white/30 dark:bg-white/5">
-        <div class="flex items-start justify-between mb-4">
-          <span class="text-3xl">🔢</span>
-          <a href="https://github.com/Shafayet-jamil/001-The-Oding-Project-Landing-Page" target="_blank"
-            class="flex items-center gap-1 text-xs text-[#888] hover:text-[#C2533A] transition-colors">
-            GitHub
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M7 17L17 7M7 7h10v10"/>
-            </svg>
-          </a>
-        </div>
-        <h3 class="font-display font-semibold text-xl mb-2">Basic Landing Page</h3>
-        <p class="text-[#5A5A5A] dark:text-[#AAAAAA] text-sm leading-relaxed mb-5">
-          A simple yet effective landing page built with HTML and CSS. 
-          Perfect for showcasing a personal brand or project.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">HTML</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">CSS</span>
-          <span class="px-2.5 py-1 text-xs font-medium bg-[#E8E7E0] dark:bg-[#2A2A27] rounded-full">JavaScript</span>
-        </div>
-        <div class="mt-4 pt-4 border-t border-[#E2E1D9] dark:border-[#2A2A27]">
-          <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium ">● Completed</span>
-        </div>
-      </article>
       <!-- ---- ADD NEW PROJECT HERE ----
         Copy this block and fill in your details:
 
@@ -251,16 +335,74 @@
       ---- END NEW PROJECT ---- -->
 
     </div>
+
+    <!-- SMALLER BUILDS & PRACTICE -->
+    <section class="mt-20">
+      <div class="h-px bg-[#E2E1D9] dark:bg-[#2A2A27] mb-14"></div>
+      <h2 class="font-display text-2xl font-semibold mb-2">Smaller Builds & Practice</h2>
+      <p class="text-[#888] text-sm mb-8">Exercises and small tools. More on <a href="https://github.com/Shafayet-jamil?tab=repositories" target="_blank" rel="noopener" class="text-[#C2533A] hover:underline">GitHub</a>.</p>
+      <div>
+        <a href="https://github.com/Shafayet-jamil/word-counter-app" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 border-b border-[#E2E1D9] dark:border-[#2A2A27] hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">Word Counter App</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">Live word, sentence, reading-time and word-frequency counts. Vanilla JS.</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://github.com/Shafayet-jamil/IUPC-Registration-Site" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 border-b border-[#E2E1D9] dark:border-[#2A2A27] hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">JnU IUPC Registration Site</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">Registration site for the Jagannath University IUPC programming contest (Sept 2025).</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://github.com/Shafayet-jamil/004-The-Oding-Project-Etch-a-Sketch" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 border-b border-[#E2E1D9] dark:border-[#2A2A27] hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">Etch-a-Sketch</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">Grid drawing app — DOM manipulation and events (The Odin Project).</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://github.com/Shafayet-jamil/001-The-Oding-Project-Landing-Page" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 border-b border-[#E2E1D9] dark:border-[#2A2A27] hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">Landing Page</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">Responsive landing page with HTML and CSS (The Odin Project).</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://github.com/Shafayet-jamil/DFSAlgorithm" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 border-b border-[#E2E1D9] dark:border-[#2A2A27] hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">BFS & DFS in Java</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">Graph traversal with adjacency lists, iterative and recursive.</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://github.com/Shafayet-jamil/go-backend" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 border-b border-[#E2E1D9] dark:border-[#2A2A27] hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">Go Backend Practice</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">Learning Go for backend: slices, maps, structs and a basic HTTP server.</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://github.com/Shafayet-jamil/Shafayet-Jamil-Portfolio" target="_blank" rel="noopener" class="group flex items-start justify-between gap-6 py-4 hover:opacity-70 transition-opacity">
+          <div>
+            <h3 class="font-display font-semibold">This Portfolio</h3>
+            <p class="text-sm text-[#5A5A5A] dark:text-[#AAAAAA]">HTML, Tailwind CSS and vanilla JS, with dark mode and a Markdown blog.</p>
+          </div>
+          <svg class="w-4 h-4 mt-1.5 text-[#AAAAAA] group-hover:text-[#C2533A] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
   <footer class="border-t border-[#E2E1D9] dark:border-[#2A2A27] mt-16">
     <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-[#888]">© 2025 Shafayet Jamil. Built with HTML, Tailwind & ☕</p>
+      <p class="text-sm text-[#888]">© 2026 Shafayet Jamil. Built with HTML, Tailwind & ☕</p>
       <div class="flex gap-6 text-sm text-[#888]">
         <a href="https://github.com/Shafayet-jamil" target="_blank" class="hover:text-[#C2533A] transition-colors">GitHub</a>
         <a href="https://linkedin.com/in/shafayet-jamil" target="_blank" class="hover:text-[#C2533A] transition-colors">LinkedIn</a>
-        <a href="mailto:mdshayetjamil@outlook.com" class="hover:text-[#C2533A] transition-colors">Email</a>
+        <a href="mailto:mdshafayetjamil@outlook.com" class="hover:text-[#C2533A] transition-colors">Email</a>
       </div>
     </div>
   </footer>
