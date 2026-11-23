@@ -14,12 +14,13 @@
 // =====================================================================
 
 export const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
+  apiKey: "AIzaSyAifnUOeS21NinlhtqXxUFxl5zk-hBlDYI",
+  authDomain: "shafyet-jamil.firebaseapp.com",
+  projectId: "shafyet-jamil",
+  storageBucket: "shafyet-jamil.firebasestorage.app",
+  messagingSenderId: "89945051675",
+  appId: "1:89945051675:web:22361ac0295106bd825ebe",
+  measurementId: "G-QFQR4ZFT0T",
 };
 
 export const ADMIN_EMAILS = ["shafayetjamil000@gmail.com"];
